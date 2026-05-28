@@ -95,7 +95,7 @@ router.get('/compras', verificarToken, async (req, res) => {
 router.get('/faltantes', verificarToken, async (req, res) => {
   try {
     const { rows } = await pool.query(`
-      SELECT nombre_producto,
+      SELECT MIN(nombre_producto) AS nombre_producto,
              COUNT(*) AS veces_solicitado,
              SUM(COALESCE(cantidad, 1)) AS cantidad_total,
              MAX(fecha) AS ultima_fecha
