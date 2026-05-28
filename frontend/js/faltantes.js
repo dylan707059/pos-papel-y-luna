@@ -133,7 +133,15 @@ async function renderizarFaltantes(filtros = {}) {
         const errEl       = document.getElementById('falt-error');
 
         if (!nombre) { errEl.textContent = 'El nombre es requerido.'; errEl.style.display = 'block'; return; }
-        errEl.style.display = 'none';
+
+const cantidadNum = parseInt(document.getElementById('falt-cantidad').value);
+if (document.getElementById('falt-cantidad').value && cantidadNum <= 0) {
+    errEl.textContent = 'La cantidad debe ser mayor a 0.';
+    errEl.style.display = 'block';
+    return;
+}
+
+errEl.style.display = 'none';
 
         try {
             await registrarFaltante({ nombreProducto: nombre, cantidad, tipo, observacion: obs, proveedorId });
