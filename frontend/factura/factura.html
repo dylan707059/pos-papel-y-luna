@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Factura P.O.S. — Papel y Luna</title>
+    <link rel="stylesheet" href="factura_estilos.css">
+</head>
+<body>
+    <div class="no-print">
+        <button onclick="window.print()">🖨️ Imprimir</button>
+        <button onclick="window.close()" style="background:#555;">✕ Cerrar</button>
+    </div>
+
+    <div id="ticket">
+        <div class="centro">
+            <h3>PAPEL Y LUNA POS</h3>
+            <p>NIT: 666666666</p>
+            <p>Chía, Cundinamarca</p>
+            <div class="linea"></div>
+            <p class="negrita" id="nro-factura">FACTURA: </p>
+            <p id="fecha" style="font-size:11px;"></p>
+        </div>
+
+        <div style="margin-top:10px; font-size:12px;">
+            <p><strong>ADQUIRIENTE:</strong> CONSUMIDOR FINAL</p>
+            <p><strong>NIT/CC:</strong> 222222222222</p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>CANT</th>
+                    <th>PRODUCTO</th>
+                    <th class="derecha">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody id="items-tabla"></tbody>
+        </table>
+
+        <div class="linea"></div>
+
+        <div class="derecha negrita" style="font-size:14px;">
+            <p>TOTAL: $<span id="total"></span></p>
+        </div>
+        <div class="derecha" style="font-size:12px;">
+            <p>EFECTIVO: $<span id="recibido"></span></p>
+            <p>CAMBIO: $<span id="cambio"></span></p>
+        </div>
+
+        <div class="centro" style="margin-top:20px; font-size:10px;">
+            <p>*** Gracias por su compra ***</p>
+        </div>
+    </div>
+
+    <div id="estado-carga" class="no-print" style="color:#666; font-size:13px; text-align:center; padding:10px; display:none;">
+        Cargando factura...
+    </div>
+
+    <script type="module" src="factura_logic.js"></script>
+</body>
+</html>

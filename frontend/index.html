@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papel y Luna POS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="brand-icon">🌙</span>
+            <span class="brand-text">Papel y Luna</span>
+            <span class="brand-pos">POS</span>
+        </div>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Menú">☰</button>
+
+        <div class="nav-links" id="nav-links">
+            <button id="btn-ventas" class="active">
+                <span class="nav-icon">🛒</span> Ventas
+            </button>
+            <button id="btn-productos">
+                <span class="nav-icon">📦</span> Inventario
+            </button>
+            <button id="btn-compras">
+                <span class="nav-icon">🏪</span> Compras
+            </button>
+            <button id="btn-historial">
+                <span class="nav-icon">📋</span> Historial
+            </button>
+            <button id="btn-historial-compras">
+                <span class="nav-icon">🧾</span> Hist. Compras
+            </button>
+            <div class="nav-divider"></div>
+            <button id="btn-clientes">
+                <span class="nav-icon">👥</span> Clientes
+            </button>
+            <button id="btn-proveedores">
+                <span class="nav-icon">🏭</span> Proveedores
+            </button>
+            <button id="btn-categorias">
+                <span class="nav-icon">🏷️</span> Categorías
+            </button>
+            <button id="btn-descuentos">
+                <span class="nav-icon">🎟️</span> Descuentos
+            </button>
+            <button id="btn-faltantes">
+                <span class="nav-icon">📭</span> Faltantes
+            </button>
+            <button id="btn-reportes">
+                <span class="nav-icon">📊</span> Reportes
+            </button>
+        </div>
+
+        <div class="nav-right">
+            <div id="usuario-info" class="user-tag"></div>
+            <button id="btn-cerrar-sesion" class="btn-logout" title="Cerrar sesión">🚪</button>
+        </div>
+    </nav>
+
+    <main id="contenedor-principal">
+
+        <section id="seccion-ventas" class="vista">
+            <div class="seccion-header">
+                <h2>Nueva Venta</h2>
+                <p>Busca productos y agrégalos a la venta.</p>
+            </div>
+            <div id="interfaz-venta"></div>
+        </section>
+
+        <section id="seccion-productos" class="vista">
+            <div class="seccion-header">
+                <h2>Gestión de Inventario</h2>
+                <p>Administra el catálogo de productos.</p>
+            </div>
+            <div id="interfaz-productos"></div>
+        </section>
+
+        <section id="seccion-compras" class="vista">
+            <div class="seccion-header">
+                <h2>Registrar Compra</h2>
+                <p>Registra entrada de mercancía de proveedores.</p>
+            </div>
+            <div id="interfaz-compras"></div>
+        </section>
+
+        <section id="seccion-historial" class="vista">
+            <div class="seccion-header">
+                <h2>Historial de Ventas</h2>
+                <p>Consulta las ventas cerradas.</p>
+            </div>
+            <div id="lista-historial"></div>
+        </section>
+
+        <section id="seccion-historial-compras" class="vista">
+            <div class="seccion-header">
+                <h2>Historial de Compras</h2>
+                <p>Consulta las compras registradas.</p>
+            </div>
+            <div id="lista-historial-compras"></div>
+        </section>
+
+        <section id="seccion-clientes" class="vista">
+            <div class="seccion-header">
+                <h2>Clientes</h2>
+                <p>Gestiona los clientes del negocio.</p>
+            </div>
+            <div id="interfaz-clientes"></div>
+        </section>
+
+        <section id="seccion-proveedores" class="vista">
+            <div class="seccion-header">
+                <h2>Proveedores</h2>
+                <p>Gestiona los proveedores del negocio.</p>
+            </div>
+            <div id="interfaz-proveedores"></div>
+        </section>
+
+        <section id="seccion-categorias" class="vista">
+            <div class="seccion-header">
+                <h2>Categorías</h2>
+                <p>Organiza los productos por categoría.</p>
+            </div>
+            <div id="interfaz-categorias"></div>
+        </section>
+
+        <section id="seccion-descuentos" class="vista">
+            <div class="seccion-header">
+                <h2>Descuentos</h2>
+                <p>Crea y gestiona descuentos aplicables a ventas.</p>
+            </div>
+            <div id="interfaz-descuentos"></div>
+        </section>
+
+        <section id="seccion-faltantes" class="vista">
+            <div class="seccion-header">
+                <h2>Productos Faltantes</h2>
+                <p>Registra productos que los clientes solicitan y no están disponibles.</p>
+            </div>
+            <div id="interfaz-faltantes"></div>
+        </section>
+
+        <section id="seccion-reportes" class="vista">
+            <div class="seccion-header">
+                <h2>Reportes</h2>
+                <p>Consulta estadísticas del negocio.</p>
+            </div>
+            <div id="interfaz-reportes"></div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>Papel y Luna POS &copy; 2026 · Sistema desarrollado para Ingeniería Informática</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+/* factura_estilos.css - Estilo P.O.S. Simplificado */
+body { 
+    font-family: 'Courier New', Courier, monospace; 
+    padding: 10px; 
+    width: 260px; 
+    color: #000;
+    line-height: 1.2;
+}
+.centro { text-align: center; }
+.derecha { text-align: right; }
+.negrita { font-weight: bold; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 12px; }
+th { border-top: 1px dashed #000; border-bottom: 1px dashed #000; text-align: left; }
+.linea { border-top: 1px solid #000; margin: 10px 0; }
+.no-print { margin-bottom: 15px; }
+
+@media print { 
+    .no-print { display: none; } 
+    body { padding: 0; margin: 0; }
+}
