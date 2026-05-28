@@ -49,6 +49,7 @@ export async function inicializarCompras() {
                     <span class="total-monto">$<span id="total-compra">0</span></span>
                 </div>
 
+                <p id="compra-error" style="color:#e74c3c;font-size:.85rem;margin-bottom:.5rem;display:none"></p>
                 <button id="btn-registrar-compra" class="btn-primary btn-grande" style="margin-top: 16px; width: 100%;">
                     📦 Registrar Compra
                 </button>
@@ -174,7 +175,19 @@ window.eliminarItemCompra = (i) => {
 };
 
 async function registrarCompraHandler() {
-    if (itemsCompra.length === 0) return mostrarToast('Agrega al menos un producto', 'warning');
+    const errComp = document.getElementById('compra-error');
+if (errComp) errComp.style.display = 'none';
+
+if (itemsCompra.length === 0) {
+    if (errComp) { errComp.textContent = 'Agrega al menos un producto.'; errComp.style.display = 'block'; }
+    return;
+}
+
+const itemInvalido = itemsCompra.find(i => i.cantidad <= 0 || i.costo < 0);
+if (itemInvalido) {
+    if (errComp) { errComp.textContent = 'La cantidad debe ser mayor a 0 y el costo no puede ser negativo.'; errComp.style.display = 'block'; }
+    return;
+}
 
     const { items, total } = calcularTotalesCompra(itemsCompra);
     const btn = document.getElementById('btn-registrar-compra');
