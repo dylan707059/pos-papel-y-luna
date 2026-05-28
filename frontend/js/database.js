@@ -1,7 +1,7 @@
 // database.js — Capa de datos conectada al backend real
 // POS Papel y Luna — MVP 3
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://pos-papel-y-luna.onrender.com';
 
 // ─── AUTENTICACIÓN ─────────────────────────────────────────────────────────────
 
