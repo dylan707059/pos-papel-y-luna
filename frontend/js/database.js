@@ -291,7 +291,7 @@ export async function registrarCompra(compra) {
         items:        compra.items.map(i => ({
             producto_id:    i.productoId,
             cantidad:       i.cantidad,
-            costo_unitario: i.costoUnitario,
+            costo_unitario: i.costoUnitario || i.costo || 0,
         }))
     });
     return r.id;

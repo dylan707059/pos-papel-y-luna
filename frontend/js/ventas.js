@@ -422,7 +422,7 @@ function agregarAlCarrito(producto) {
 
 window.actualizarCantidadVenta = async (index, nuevaCantidad) => {
     const cant = parseInt(nuevaCantidad);
-    if (cant < 1) return;
+    if (isNaN(cant) || cant < 1) { actualizarTablaCarrito(); return; }
     const item = carrito[index];
     try {
         const productos = await obtenerProductos();
