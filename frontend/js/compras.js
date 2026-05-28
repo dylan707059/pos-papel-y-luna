@@ -161,12 +161,30 @@ function renderTablaCompra() {
 
 window.actualizarCantidadCompra = (i, val) => {
     const cant = parseInt(val);
-    if (cant > 0) { itemsCompra[i].cantidad = cant; renderTablaCompra(); }
+    const errComp = document.getElementById('compra-error');
+    if (isNaN(cant) || cant < 1) {
+        if (errComp) { errComp.textContent = 'La cantidad debe ser mayor a 0.'; errComp.style.display = 'block'; }
+        itemsCompra[i].cantidad = 1;
+        renderTablaCompra();
+        return;
+    }
+    if (errComp) errComp.style.display = 'none';
+    itemsCompra[i].cantidad = cant;
+    renderTablaCompra();
 };
 
 window.actualizarCostoCompra = (i, val) => {
     const costo = parseFloat(val);
-    if (costo >= 0) { itemsCompra[i].costo = costo; renderTablaCompra(); }
+    const errComp = document.getElementById('compra-error');
+    if (isNaN(costo) || costo < 0) {
+        if (errComp) { errComp.textContent = 'El costo no puede ser negativo.'; errComp.style.display = 'block'; }
+        itemsCompra[i].costo = 0;
+        renderTablaCompra();
+        return;
+    }
+    if (errComp) errComp.style.display = 'none';
+    itemsCompra[i].costo = costo;
+    renderTablaCompra();
 };
 
 window.eliminarItemCompra = (i) => {
