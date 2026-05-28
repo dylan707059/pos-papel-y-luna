@@ -222,6 +222,7 @@ export async function registrarReembolso(ventaId, datos) {
 }
 
 // Convierte venta del backend al formato del frontend
+// Convierte venta del backend al formato del frontend
 function normalizarVenta(v) {
     return {
         id:              v.id,
@@ -235,12 +236,26 @@ function normalizarVenta(v) {
         cambio:          parseFloat(v.cambio)          || 0,
         descuentoId:     v.descuento_id,
         descuentoValor:  parseFloat(v.descuento_valor) || 0,
-        corregida:       v.corregida === 1,
+
+        // PostgreSQL puede mandar boolean como true/false o texto
+        corregida: (
+            v.corregida === true ||
+            v.corregida === 1 ||
+            v.corregida === '1' ||
+            v.corregida === 'true'
+        ),
+
         corregidaPor:    v.corregida_por_nombre || '',
         corregidaEn:     v.corregida_en || '',
+
         items:           (v.items || []).map(normalizarItem),
         reembolsos:      v.reembolsos || [],
-        totalReembolsos: v.total_reembolsos || 0,
+
+        // Esto es importante para que el botón Corregir / Sin corrección funcione
+        totalReembolsos: parseInt(v.total_reembolsos || 0, 10),
+
+        // Esto ayuda al modal de reembolso
+        yaReembolsado:   v.ya_reembolsado || {},
     };
 }
 
